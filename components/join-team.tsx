@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Users, TrendingUp, GraduationCap, Handshake, ArrowRight, CheckCircle2 } from "lucide-react"
@@ -129,10 +128,14 @@ export function JoinTeam() {
                     size="lg"
                     className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/25 group border-0 text-sm sm:text-base"
                   >
-                    <Link href="#contact">
+                    <a
+                      href="https://docs.google.com/forms/d/157bJdXwd25RRHSU8t77HD58bFReaB0qxo5It20tA-qA/edit"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Apply to Join the Team
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    </a>
                   </Button>
                   <p className="text-center text-xs sm:text-sm text-white px-2">
                     Questions? Reach out directly to learn more about the opportunity.

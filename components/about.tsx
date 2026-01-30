@@ -58,15 +58,15 @@ export function About() {
           </div>
 
           <div className="order-1 lg:order-2 space-y-4 sm:space-y-6">
-            {/* Devyn professional headshot - smaller frame, image stays large */}
-            <div className="relative mx-auto h-72 sm:h-80 md:h-96 w-full max-w-md overflow-hidden rounded-2xl sm:rounded-3xl border-2 sm:border-4 border-secondary/20 bg-card shadow-2xl transition-all duration-500 hover:border-secondary/40 hover:shadow-secondary/20">
-              <div className="absolute left-1/2 top-1/2 h-[150%] w-[150%] -translate-x-1/2 -translate-y-1/2">
+            {/* Devyn professional headshot */}
+            <div className="relative mx-auto h-80 sm:h-96 md:h-[28rem] lg:h-[32rem] w-full max-w-lg overflow-hidden rounded-2xl sm:rounded-3xl border-2 sm:border-4 border-secondary/20 bg-card shadow-2xl transition-all duration-500 hover:border-secondary/40 hover:shadow-secondary/20">
+              <div className="absolute left-1/2 top-1/2 h-[175%] w-[175%] -translate-x-1/2 -translate-y-1/2">
                 <Image
                   src="/Devyn Thompson Headshot.png"
                   alt="Devyn Thompson - Licensed Financial Advisor"
                   fill
                   className="object-contain"
-                  sizes="28rem"
+                  sizes="36rem"
                 />
               </div>
             </div>
