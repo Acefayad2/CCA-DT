@@ -32,27 +32,27 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="relative bg-background py-24 md:py-32 overflow-hidden">
+    <section id="testimonials" className="relative bg-background py-12 sm:py-16 md:py-24 lg:py-32 overflow-hidden">
       {/* Subtle background accents */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute bottom-20 right-10 h-64 w-64 rounded-full bg-accent/5 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 md:px-6">
-        <div className="mb-16 text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 md:px-6">
+        <div className="mb-12 sm:mb-16 text-center">
+          <p className="mb-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">
             Testimonials
           </p>
-          <h2 className="font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl text-balance">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground text-balance">
             What Our Clients Say
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            Hear from families and individuals who have transformed their financial future with CCA.
+          <p className="mx-auto mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed px-4">
+            Hear from families and individuals who have transformed their financial future with CCA (Consistent, Compassionate Activists).
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <Card
               key={testimonial.id}
@@ -73,35 +73,35 @@ export function Testimonials() {
               }`}>
                 <Quote className="h-24 w-24" />
               </div>
-              <CardContent className="relative p-8">
-                <div className="mb-6 flex gap-1">
+              <CardContent className="relative p-4 sm:p-6 md:p-8">
+                <div className="mb-4 sm:mb-6 flex gap-1">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      className="h-5 w-5 fill-secondary text-secondary transition-all duration-300"
+                      className="h-4 w-4 sm:h-5 sm:w-5 fill-secondary text-secondary transition-all duration-300"
                       style={{ transitionDelay: `${i * 50}ms` }}
                     />
                   ))}
                 </div>
                 
-                <p className="mb-8 text-muted-foreground leading-relaxed italic">
+                <p className="mb-6 sm:mb-8 text-sm sm:text-base text-muted-foreground leading-relaxed italic">
                   &ldquo;{testimonial.content}&rdquo;
                 </p>
                 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 sm:gap-4">
                   {/* Testimonial image placeholder */}
-                  <div className={`relative h-14 w-14 overflow-hidden rounded-full border-2 bg-muted transition-all duration-300 group-hover:scale-105 ${
+                  <div className={`relative h-12 w-12 sm:h-14 sm:w-14 overflow-hidden rounded-full border-2 bg-muted transition-all duration-300 group-hover:scale-105 ${
                     testimonial.accent === 'purple' ? 'border-purple-500/30 group-hover:border-purple-500' :
                     testimonial.accent === 'blue' ? 'border-blue-500/30 group-hover:border-blue-500' :
                     'border-amber-500/30 group-hover:border-amber-500'
                   }`}>
                     <div className="flex h-full w-full items-center justify-center text-muted-foreground/40">
-                      <Camera className="h-5 w-5" />
+                      <Camera className="h-4 w-4 sm:h-5 sm:w-5" />
                     </div>
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    <p className="font-semibold text-sm sm:text-base text-foreground">{testimonial.name}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.role}</p>
                   </div>
                 </div>
               </CardContent>
@@ -110,8 +110,8 @@ export function Testimonials() {
         </div>
 
         {/* Add more testimonials CTA */}
-        <div className="mt-12 text-center">
-          <p className="text-muted-foreground">
+        <div className="mt-8 sm:mt-12 text-center px-4">
+          <p className="text-sm sm:text-base text-muted-foreground">
             Ready to share your story?{" "}
             <a href="#contact" className="font-semibold text-primary underline-offset-4 hover:underline transition-colors duration-300">
               Get started today

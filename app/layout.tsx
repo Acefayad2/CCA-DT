@@ -9,8 +9,8 @@ const _playfair = Playfair_Display({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'CCA - Turning Awareness Into Action | Devyn Thompson - Life Insurance & Financial Services',
-  description: 'Devyn Thompson helps families and individuals secure their financial future with IULs, annuities, whole life, and term life insurance policies. Free financial breakdowns available. CCA - Turning Awareness Into Action.',
-  keywords: ['life insurance', 'IUL', 'annuities', 'whole life insurance', 'term life insurance', 'financial planning', 'Devyn Thompson', 'CCA'],
+  description: 'Devyn Thompson helps families and individuals secure their financial future with IULs, annuities, whole life, and term life insurance policies. Free financial breakdowns available. CCA — Consistent, Compassionate Activists.',
+  keywords: ['life insurance', 'IUL', 'annuities', 'whole life insurance', 'term life insurance', 'financial planning', 'Devyn Thompson', 'CCA', 'Consistent Compassionate Activists'],
     generator: 'v0.app'
 }
 

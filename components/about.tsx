@@ -1,6 +1,6 @@
 "use client"
 
-import { CheckCircle, Camera } from "lucide-react"
+import { CheckCircle } from "lucide-react"
 import Image from "next/image"
 
 const values = [
@@ -24,19 +24,19 @@ const values = [
 
 export function About() {
   return (
-    <section id="about" className="bg-muted py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+    <section id="about" className="bg-muted py-12 sm:py-16 md:py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-6">
+        <div className="grid items-center gap-8 sm:gap-12 md:gap-16 lg:grid-cols-2">
           <div className="order-2 lg:order-1">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-secondary">
+            <p className="mb-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-secondary">
               About Devyn
             </p>
-            <h2 className="font-serif text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl text-balance">
-              Meet Devyn Thompson
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground text-balance">
+              Devyn Thompson
             </h2>
-            <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
+            <div className="mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
               <p>
-                Devyn started CCA with a simple mission: to help families in our community build and protect their wealth through smart financial planning.
+                Devyn started CCA (Consistent, Compassionate Activists) with a simple mission: to help families in our community build and protect their wealth through smart financial planning.
               </p>
               <p>
                 After years of seeing hardworking people struggle with confusing insurance policies and missed opportunities for wealth building, she knew there had to be a better way. That&apos;s why she focuses on education first—helping you understand your options so you can make informed decisions.
@@ -46,48 +46,45 @@ export function About() {
               </p>
             </div>
 
-            <div className="mt-8 flex items-center gap-4 transition-all duration-300 hover:translate-x-2">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-secondary-foreground font-bold text-lg">
+            <div className="mt-6 sm:mt-8 flex items-center gap-3 sm:gap-4 transition-all duration-300 hover:translate-x-2">
+              <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-secondary text-secondary-foreground font-bold text-base sm:text-lg">
                 DT
               </div>
               <div>
-                <p className="font-semibold text-foreground">Devyn Thompson</p>
-                <p className="text-sm text-muted-foreground">Licensed Financial Advisor | CCA</p>
+                <p className="font-semibold text-sm sm:text-base text-foreground">Devyn Thompson</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Licensed Financial Advisor | CCA</p>
               </div>
             </div>
           </div>
 
-          <div className="order-1 lg:order-2 space-y-6">
-            {/* Large image placeholder for About section */}
-            <div className="relative mx-auto h-80 w-full max-w-md overflow-hidden rounded-3xl border-4 border-secondary/20 bg-card shadow-2xl transition-all duration-500 hover:border-secondary/40 hover:shadow-secondary/20">
-              <div className="flex h-full w-full flex-col items-center justify-center text-muted-foreground">
-                <Camera className="h-16 w-16 mb-3" />
-                <span className="text-sm text-center px-4">Add Devyn&apos;s professional photo here</span>
+          <div className="order-1 lg:order-2 space-y-4 sm:space-y-6">
+            {/* Devyn professional headshot - smaller frame, image stays large */}
+            <div className="relative mx-auto h-72 sm:h-80 md:h-96 w-full max-w-md overflow-hidden rounded-2xl sm:rounded-3xl border-2 sm:border-4 border-secondary/20 bg-card shadow-2xl transition-all duration-500 hover:border-secondary/40 hover:shadow-secondary/20">
+              <div className="absolute left-1/2 top-1/2 h-[150%] w-[150%] -translate-x-1/2 -translate-y-1/2">
+                <Image
+                  src="/Devyn Thompson Headshot.png"
+                  alt="Devyn Thompson - Licensed Financial Advisor"
+                  fill
+                  className="object-contain"
+                  sizes="28rem"
+                />
               </div>
-              {/* Uncomment and update src when you have the image:
-              <Image
-                src="/devyn-thompson-about.jpg"
-                alt="Devyn Thompson"
-                fill
-                className="object-cover"
-              />
-              */}
             </div>
             
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               {values.map((value, index) => (
                 <div
                   key={value.title}
-                  className="group rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-secondary/50 hover:shadow-lg hover:-translate-y-1"
+                  className="group rounded-xl border border-border bg-card p-4 sm:p-5 transition-all duration-300 hover:border-secondary/50 hover:shadow-lg hover:-translate-y-1"
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary/10 transition-all duration-300 group-hover:bg-secondary group-hover:scale-110">
-                      <CheckCircle className="h-5 w-5 text-secondary transition-colors duration-300 group-hover:text-secondary-foreground" />
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full bg-secondary/10 transition-all duration-300 group-hover:bg-secondary group-hover:scale-110">
+                      <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-secondary transition-colors duration-300 group-hover:text-secondary-foreground" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-card-foreground">{value.title}</h3>
-                      <p className="mt-1 text-sm text-muted-foreground">{value.description}</p>
+                      <h3 className="font-semibold text-sm sm:text-base text-card-foreground">{value.title}</h3>
+                      <p className="mt-1 text-xs sm:text-sm text-muted-foreground">{value.description}</p>
                     </div>
                   </div>
                 </div>

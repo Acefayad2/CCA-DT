@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
@@ -12,15 +13,20 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="group flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02]">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-lg transition-all duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground">
-            CCA
-          </div>
+          <Image
+            src="/logo CCA.PNG"
+            alt="CCA - Consistent Compassionate Activists"
+            width={72}
+            height={72}
+            className="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 object-contain transition-transform duration-300 group-hover:scale-105"
+            priority
+          />
           <div className="flex flex-col">
             <span className="font-serif text-lg font-bold tracking-tight text-foreground">
               CCA
             </span>
             <span className="text-xs text-muted-foreground hidden sm:block">
-              Turning Awareness Into Action
+              Consistent • Compassionate • Activists
             </span>
           </div>
         </Link>
