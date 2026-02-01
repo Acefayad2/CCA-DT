@@ -1,6 +1,6 @@
 "use client"
 
-import { TrendingUp, Shield, Landmark, Clock, FileText, ArrowRight } from "lucide-react"
+import { TrendingUp, Shield, Landmark, Clock, FileText, ArrowRight, GraduationCap } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 
@@ -32,6 +32,13 @@ const services = [
     description: "Affordable protection for specific periods of your life. Ideal for covering mortgages, education costs, or income replacement.",
     features: ["Budget-friendly", "High coverage amounts", "Convertible options"],
     color: "purple",
+  },
+  {
+    icon: GraduationCap,
+    title: "Financial Literacy Classes",
+    description: "Build money skills for life. We offer financial literacy classes for individuals, families, and educators—and partners with teachers to bring financial education into schools and help improve education in America.",
+    features: ["For individuals & families", "Teacher partnerships", "School & community programs"],
+    color: "blue",
   },
 ]
 
@@ -235,7 +242,7 @@ export function Services() {
               <h3 className="font-serif text-xl sm:text-2xl font-semibold text-white">Free Financial Breakdowns</h3>
             </div>
             <p className="mx-auto mt-4 max-w-xl text-slate-400 text-base sm:text-lg leading-relaxed px-4">
-              Not sure where to start? Devyn offers complimentary financial breakdowns to help you understand your current situation and explore your options.
+              Not sure where to start? We offer complimentary financial breakdowns to help you understand your current situation and explore your options.
             </p>
             <Link
               href="#contact"

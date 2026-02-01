@@ -1,6 +1,5 @@
 "use client"
 
-import { useChat } from "@ai-sdk/react"
 import { MessageCircle, Send, Loader2 } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -14,25 +13,64 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { cn } from "@/lib/utils"
 
-const WELCOME = "Hi! I'm the CCA assistant. Ask me anything about Devyn Thompson, our services (IUL, annuities, whole life, term life), free financial breakdowns, how to get started, or contact info. How can I help?"
+const WELCOME = "Hi! I'm the CCA assistant. Ask me anything about Devyn Thompson, our services (IUL, annuities, whole life, term life, financial literacy classes), teacher partnerships, free financial breakdowns, how to get started, or contact info. How can I help?"
+
+type Message = { id: string; role: "user" | "assistant"; content: string }
 
 export function Chatbot() {
   const [open, setOpen] = useState(false)
-  const {
-    messages,
-    input,
-    handleInputChange,
-    handleSubmit,
-    isLoading,
-    error,
-  } = useChat({
-    api: "/api/chat",
-    onError: (err) => {
-      console.error("Chat error:", err)
-    },
-  })
+  const [input, setInput] = useState("")
+  const [messages, setMessages] = useState<Message[]>([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<Error | null>(null)
 
   const showWelcome = messages.length === 0 && !isLoading
+
+  async function handleSubmit(e?: React.FormEvent) {
+    e?.preventDefault()
+    const text = input.trim()
+    if (!text || isLoading) return
+
+    const userMsg: Message = {
+      id: crypto.randomUUID(),
+      role: "user",
+      content: text,
+    }
+    setMessages((prev) => [...prev, userMsg])
+    setInput("")
+    setIsLoading(true)
+    setError(null)
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: [...messages, userMsg].map((m) => ({
+            role: m.role,
+            content: m.content,
+          })),
+        }),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong. Please try again.")
+      }
+
+      const assistantMsg: Message = {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        content: data.message || "I couldn't find an answer. Please contact Devyn at (301) 266-6365 or devyn@ccafinancial.com.",
+      }
+      setMessages((prev) => [...prev, assistantMsg])
+    } catch (err) {
+      setError(err instanceof Error ? err : new Error("Something went wrong. Please try again or contact Devyn at (301) 266-6365."))
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <>
@@ -49,17 +87,18 @@ export function Chatbot() {
           side="right"
           className="flex w-full flex-col border-slate-800 bg-slate-900 p-0 sm:max-w-md"
         >
-          <SheetHeader className="border-b border-white/10 bg-slate-900/95 px-4 py-3">
+          <SheetHeader className="shrink-0 border-b border-white/10 bg-slate-900/95 px-4 py-3">
             <SheetTitle className="text-left text-white">
               CCA Assistant
             </SheetTitle>
             <SheetDescription className="text-left text-slate-400">
-              Ask about services, Devyn, or how to get started
+              Ask about services, financial literacy, teacher partnerships, or how to get started
             </SheetDescription>
           </SheetHeader>
 
-          <ScrollArea className="flex-1 px-4 py-3">
-            <div className="flex flex-col gap-4 pb-4">
+          <div className="min-h-0 flex-1 overflow-hidden">
+            <ScrollArea className="h-full">
+              <div className="flex flex-col gap-4 px-4 py-3 pb-4">
               {showWelcome && (
                 <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
                   <p className="text-sm text-slate-300">{WELCOME}</p>
@@ -68,7 +107,7 @@ export function Chatbot() {
               {error && (
                 <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3">
                   <p className="text-sm text-amber-200">
-                    {error.message || "Something went wrong. Please try again or contact Devyn directly at (301) 266-6365."}
+                    {error.message}
                   </p>
                 </div>
               )}
@@ -91,17 +130,18 @@ export function Chatbot() {
                   <span className="text-sm text-slate-400">Thinking...</span>
                 </div>
               )}
-            </div>
-          </ScrollArea>
+              </div>
+            </ScrollArea>
+          </div>
 
           <form
             onSubmit={handleSubmit}
-            className="border-t border-white/10 bg-slate-900/95 p-4"
+            className="shrink-0 border-t border-white/10 bg-slate-900/95 p-4"
           >
             <div className="flex gap-2">
               <textarea
                 value={input}
-                onChange={handleInputChange}
+                onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about CCA, services, or contact..."
                 rows={1}
                 className="min-h-[44px] flex-1 resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
@@ -109,14 +149,14 @@ export function Chatbot() {
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
                     e.preventDefault()
-                    handleSubmit(e as unknown as React.FormEvent)
+                    handleSubmit()
                   }
                 }}
               />
               <Button
                 type="submit"
                 size="icon"
-                disabled={isLoading || !(input ?? "").trim()}
+                disabled={isLoading || !input.trim()}
                 className="h-11 w-11 shrink-0 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600"
               >
                 {isLoading ? (

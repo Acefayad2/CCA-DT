@@ -11,14 +11,34 @@ import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react"
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setError(null)
     setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: formData.get("firstName"),
+          lastName: formData.get("lastName"),
+          email: formData.get("email"),
+          phone: formData.get("phone") || "",
+          message: formData.get("message"),
+        }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || "Failed to send")
+      setIsSubmitted(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -109,6 +129,7 @@ export function Contact() {
                     </Label>
                     <Input
                       id="firstName"
+                      name="firstName"
                       placeholder="Jane"
                       required
                       className="border-white/10 bg-white/5 text-white placeholder:text-slate-500 transition-all duration-300 focus:border-purple-500 focus:ring-purple-500 text-sm sm:text-base"
@@ -120,6 +141,7 @@ export function Contact() {
                     </Label>
                     <Input
                       id="lastName"
+                      name="lastName"
                       placeholder="Doe"
                       required
                       className="border-white/10 bg-white/5 text-white placeholder:text-slate-500 transition-all duration-300 focus:border-purple-500 focus:ring-purple-500 text-sm sm:text-base"
@@ -132,6 +154,7 @@ export function Contact() {
                   </Label>
                   <Input
                     id="email"
+                    name="email"
                     type="email"
                     placeholder="jane@example.com"
                     required
@@ -144,6 +167,7 @@ export function Contact() {
                   </Label>
                   <Input
                     id="phone"
+                    name="phone"
                     type="tel"
                     placeholder="(301) 266-6365"
                     className="border-white/10 bg-white/5 text-white placeholder:text-slate-500 transition-all duration-300 focus:border-purple-500 focus:ring-purple-500 text-sm sm:text-base"
@@ -155,12 +179,18 @@ export function Contact() {
                   </Label>
                   <Textarea
                     id="message"
+                    name="message"
                     placeholder="Tell me about your goals or questions..."
                     rows={4}
                     required
                     className="border-white/10 bg-white/5 text-white placeholder:text-slate-500 transition-all duration-300 focus:border-purple-500 focus:ring-purple-500 text-sm sm:text-base"
                   />
                 </div>
+                {error && (
+                  <p className="text-sm text-amber-400 bg-amber-500/10 border border-amber-500/30 rounded-lg px-4 py-2">
+                    {error}
+                  </p>
+                )}
                 <Button
                   type="submit"
                   className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-purple-500/25 border-0 text-sm sm:text-base"

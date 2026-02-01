@@ -19,9 +19,10 @@ export const SITE_KNOWLEDGE = `
 
 ## About Devyn Thompson
 - Devyn Thompson is the founder of CCA (Consistent, Compassionate Activists).
-- Mission: help families in the community build and protect their wealth through smart financial planning.
+- Mission: help families in the community build and protect their wealth through smart financial planning. She is also passionate about improving education in America.
 - She focuses on education first—helping you understand your options so you can make informed decisions.
-- She can help with: protecting your family with life insurance, planning for retirement with an annuity, or building cash value through an IUL.
+- She can help with: protecting your family with life insurance, planning for retirement with an annuity, building cash value through an IUL, and financial literacy education.
+- We offer financial literacy classes and actively seek to attract and partner with teachers to bring financial education into schools and communities.
 - Title: Licensed Financial Advisor | CCA
 
 ### Values
@@ -53,8 +54,13 @@ Every family deserves a personalized approach to financial security.
    - Ideal for: covering mortgages, education costs, or income replacement.
    - Features: Budget-friendly, High coverage amounts, Convertible options
 
+5. **Financial Literacy Classes**
+   - We offer financial literacy classes for individuals, families, and educators.
+   - Teachers: Devyn wants to partner with teachers to bring financial education into schools and help improve education in America.
+   - Contact Devyn to learn about bringing financial literacy to your school, community, or organization.
+
 ### Free Financial Breakdowns
-- Devyn offers complimentary financial breakdowns to help you understand your current situation and explore your options.
+- We offer complimentary financial breakdowns to help you understand your current situation and explore your options.
 - Not sure where to start? Request your free breakdown via the contact form.
 
 ## How It Works (Your Path to Financial Security)
@@ -72,6 +78,7 @@ Every family deserves a personalized approach to financial security.
 - Career opportunity to join Devyn's team and build a rewarding career helping families secure their financial futures.
 - Benefits: Training & Mentorship, Unlimited Earning Potential, Supportive Community, Flexible Schedule
 - Who they're looking for: Self-motivated and driven, Passionate about helping others, Strong communication skills, Eager to learn and grow, No experience required
+- Teachers: Devyn welcomes educators interested in partnering to bring financial literacy to students and improve education in America. Reach out to explore collaboration opportunities.
 - Questions? Reach out directly to learn more. Apply via the contact section.
 
 ## Contact

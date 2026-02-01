@@ -63,7 +63,7 @@ export function JoinTeam() {
             </span>
           </h2>
           <p className="mx-auto mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg text-white leading-relaxed px-4">
-            Ready to turn awareness into action for yourself? Join Devyn&apos;s team and build a rewarding career helping families secure their financial futures.
+            Ready to turn awareness into action for yourself? Join Devyn&apos;s team and build a rewarding career helping families secure their financial futures. <strong>Teachers:</strong> Devyn also partners with educators to bring financial literacy into schools and help improve education in America—reach out to explore collaboration.
           </p>
         </div>
 

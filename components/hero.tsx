@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Shield, TrendingUp, Users } from "lucide-react"
+import { ArrowRight, Shield, TrendingUp, Users, GraduationCap } from "lucide-react"
 
 export function Hero() {
   return (
@@ -70,6 +70,10 @@ export function Hero() {
               <div className="flex items-center gap-2 transition-all duration-300 hover:scale-105">
                 <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-amber-400" />
                 <span className="text-xs sm:text-sm text-white">Wealth Building</span>
+              </div>
+              <div className="flex items-center gap-2 transition-all duration-300 hover:scale-105">
+                <GraduationCap className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-400" />
+                <span className="text-xs sm:text-sm text-white">Financial Literacy &amp; Teachers</span>
               </div>
             </div>
           </div>

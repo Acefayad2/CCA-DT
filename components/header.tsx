@@ -11,8 +11,8 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300">
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 md:px-6">
-        <Link href="/" className="group flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02]">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-4 px-4 md:px-6">
+        <Link href="/" className="group flex shrink-0 items-center gap-3 transition-transform duration-300 hover:scale-[1.02]">
           <Image
             src="/logo CCA.PNG"
             alt="CCA - Consistent Compassionate Activists"
@@ -31,42 +31,41 @@ export function Header() {
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
-          <Link
-            href="#services"
-            className="relative text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Services
-          </Link>
-          <Link
-            href="#testimonials"
-            className="relative text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Testimonials
-          </Link>
-          <Link
-            href="#about"
-            className="relative text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full"
-          >
-            About
-          </Link>
-          <Link
-            href="#join-team"
-            className="relative text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Join the Team
-          </Link>
-          <Link
-            href="#contact"
-            className="relative text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Contact
-          </Link>
-        </nav>
-
-        <div className="hidden md:flex">
-          <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+        {/* Desktop Navigation + Free Consultation - anchored right */}
+        <div className="ml-auto flex hidden shrink-0 items-center gap-6 lg:gap-8 md:flex">
+          <nav className="flex items-center gap-6 lg:gap-8">
+            <Link
+              href="#services"
+              className="relative text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full"
+            >
+              Services
+            </Link>
+            <Link
+              href="#testimonials"
+              className="relative text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full"
+            >
+              Testimonials
+            </Link>
+            <Link
+              href="#about"
+              className="relative text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full"
+            >
+              About
+            </Link>
+            <Link
+              href="#join-team"
+              className="relative text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full"
+            >
+              Join the Team
+            </Link>
+            <Link
+              href="#contact"
+              className="relative text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full"
+            >
+              Contact
+            </Link>
+          </nav>
+          <Button asChild className="shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-lg">
             <Link href="#contact">Free Consultation</Link>
           </Button>
         </div>

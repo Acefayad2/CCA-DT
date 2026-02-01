@@ -74,7 +74,17 @@
   --sidebar-ring: oklch(0.55 0.15 280);
 }
 
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-296px * 3));
+  }
+}
+
 @theme inline {
+  --animate-slide-left: slide-left 30s linear infinite;
   --font-sans: 'Inter', 'Inter Fallback', sans-serif;
   --font-serif: 'Playfair Display', 'Playfair Display Fallback', serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';

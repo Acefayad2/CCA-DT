@@ -36,13 +36,13 @@ export function About() {
             </h2>
             <div className="mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
               <p>
-                Devyn started CCA (Consistent, Compassionate Activists) with a simple mission: to help families in our community build and protect their wealth through smart financial planning.
+                Devyn started CCA (Consistent, Compassionate Activists) with a simple mission: to help families in our community build and protect their wealth through smart financial planning—and to help improve education in America.
               </p>
               <p>
-                After years of seeing hardworking people struggle with confusing insurance policies and missed opportunities for wealth building, she knew there had to be a better way. That&apos;s why she focuses on education first—helping you understand your options so you can make informed decisions.
+                After years of seeing hardworking people struggle with confusing insurance policies and missed opportunities for wealth building, she knew there had to be a better way. That&apos;s why she focuses on education first—helping you understand your options so you can make informed decisions. We also offer financial literacy classes and actively partner with teachers to bring financial education into schools.
               </p>
               <p>
-                Whether you&apos;re looking to protect your family with life insurance, plan for retirement with an annuity, or build cash value through an IUL, Devyn is here to guide you every step of the way.
+                Whether you&apos;re looking to protect your family with life insurance, plan for retirement with an annuity, build cash value through an IUL, or bring financial literacy to your school or community, Devyn is here to guide you every step of the way.
               </p>
             </div>
 
