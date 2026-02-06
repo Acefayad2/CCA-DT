@@ -125,17 +125,22 @@ function TimelineItem({
         </div>
       </div>
 
-      {/* Timeline Node - pulled left to sit on vertical line (line at 16px, content at 80px), centered on desktop */}
-      <div className="absolute -left-16 sm:-left-16 md:left-1/2 md:-translate-x-1/2 z-10">
+      {/* Timeline Node - centered ON the vertical line (line at 1rem); fills with color when scrolled into view */}
+      <div className="absolute -left-[5.25rem] sm:-left-[5.25rem] md:left-1/2 md:-translate-x-1/2 z-10">
         <div 
-          className={`relative flex h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 items-center justify-center rounded-full border-2 sm:border-3 md:border-4 border-slate-900 transition-all duration-500 shadow-lg ${
-            isVisible ? 'scale-100' : 'scale-0'
-          } ${colors.nodeBg} ${colors.glow}`}
+          className={`relative flex h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 items-center justify-center rounded-full border-2 sm:border-3 md:border-4 shadow-lg transition-all duration-700 ${
+            service.color === 'purple' ? 'border-purple-500' : service.color === 'blue' ? 'border-blue-500' : 'border-amber-500'
+          } ${isVisible ? colors.nodeBg : 'bg-slate-900'} ${isVisible ? 'scale-100' : 'scale-90'} ${colors.glow}`}
           style={{ transitionDelay: `${index * 150 + 100}ms` }}
         >
-          <span className={`font-bold text-sm sm:text-base md:text-lg ${service.color === 'yellow' ? 'text-slate-900' : 'text-white'}`}>{index + 1}</span>
-          {/* Pulse animation */}
-          <div className={`absolute inset-0 rounded-full animate-ping opacity-30 ${colors.nodeBg}`} style={{ animationDuration: '2s' }} />
+          <span className={`relative z-10 font-bold text-sm sm:text-base md:text-lg transition-colors duration-500 ${
+            isVisible 
+              ? (service.color === 'yellow' ? 'text-slate-900' : 'text-white') 
+              : 'text-slate-400'
+          }`}>{index + 1}</span>
+          {isVisible && (
+            <div className={`absolute inset-0 rounded-full animate-ping opacity-30 ${colors.nodeBg}`} style={{ animationDuration: '2s' }} />
+          )}
         </div>
       </div>
 
