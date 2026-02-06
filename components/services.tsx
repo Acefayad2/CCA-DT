@@ -125,8 +125,8 @@ function TimelineItem({
         </div>
       </div>
 
-      {/* Timeline Node - Center */}
-      <div className="absolute left-3 sm:left-4 md:left-1/2 md:-translate-x-1/2 z-10">
+      {/* Timeline Node - pulled left to sit on vertical line (line at 16px, content at 80px), centered on desktop */}
+      <div className="absolute -left-16 sm:-left-16 md:left-1/2 md:-translate-x-1/2 z-10">
         <div 
           className={`relative flex h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 items-center justify-center rounded-full border-2 sm:border-3 md:border-4 border-slate-900 transition-all duration-500 shadow-lg ${
             isVisible ? 'scale-100' : 'scale-0'
@@ -196,8 +196,8 @@ export function Services() {
 
         {/* Timeline Container */}
         <div className="relative">
-          {/* Vertical Timeline Line */}
-          <div className="absolute left-[1.75rem] sm:left-[1.9rem] md:left-1/2 top-0 bottom-0 w-0.5 sm:w-1 md:-translate-x-1/2">
+          {/* Vertical Timeline Line - left edge for mobile so numbers sit on it */}
+          <div className="absolute left-4 sm:left-5 md:left-1/2 top-0 bottom-0 w-0.5 sm:w-1 md:-translate-x-1/2">
             {/* Background line */}
             <div className="absolute inset-0 bg-slate-700/50 rounded-full" />
             {/* Animated gradient line */}
@@ -210,8 +210,8 @@ export function Services() {
             />
           </div>
 
-          {/* Timeline Items */}
-          <div className="relative space-y-8 sm:space-y-12 md:space-y-20 pl-12 sm:pl-16 md:pl-0">
+          {/* Timeline Items - extra left padding on mobile so numbers don't overlap text */}
+          <div className="relative space-y-8 sm:space-y-12 md:space-y-20 pl-20 sm:pl-20 md:pl-0">
             {services.map((service, index) => (
               <div 
                 key={service.title}
