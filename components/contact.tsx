@@ -42,6 +42,7 @@ export function Contact() {
         }),
       })
 
+      alert("Submitted successfully!")
       setIsSubmitted(true)
     } catch (err) {
       console.error(err)
