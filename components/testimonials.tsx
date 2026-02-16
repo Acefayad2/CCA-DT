@@ -14,6 +14,14 @@ const testimonials = [
   },
   {
     id: 2,
+    name: "Mrs. Thompson",
+    role: "PHP Agency Community Member",
+    content: "I am so impressed by Ms. Devyn Thompson. Her articulate, professional yet personal delivery to your audiences immediately draws them in and holds them to the end. I witnessed it with my friends—no favoritism, just facts! One can tell that Devyn is totally in sync with your program, and trust goes a long way. Your organization has a jewel 💎 with Ms. Devyn Thompson.",
+    rating: 5,
+    accent: "yellow",
+  },
+  {
+    id: 3,
     name: "Client Name",
     role: "Business Owner",
     content: "Devyn helped us understand our options and find the perfect coverage for our family. Her expertise and patience made all the difference.",
@@ -21,7 +29,7 @@ const testimonials = [
     accent: "blue",
   },
   {
-    id: 3,
+    id: 4,
     name: "Client Name",
     role: "Parent & Professional",
     content: "Working with Devyn was a game-changer. She took the time to explain everything clearly and helped us secure our children's future.",
