@@ -54,7 +54,7 @@ function doPost(e) {
 
 ## 4. Add the URL to Your Project
 
-1. Create a `.env.local` file in your project root (if it doesn't exist).
+1. Create a `.env.local` file in your project root (if it doesn't exist)
 2. Add:
    ```
    GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
