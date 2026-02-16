@@ -25,18 +25,14 @@ export function Contact() {
     const phone = (formData.get("phone") as string) || ""
     const message = formData.get("message") as string
 
-    const url = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL
-    if (!url) {
-      setError("Form is not configured. Please contact the site owner.")
-      setIsSubmitting(false)
-      return
-    }
-
     try {
-      const res = await fetch(url, {
+      const url = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL
+      if (!url) throw new Error("Missing NEXT_PUBLIC_GOOGLE_SCRIPT_URL")
+
+      await fetch(url, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+        mode: "no-cors",
+        body: new URLSearchParams({
           timestamp: new Date().toISOString(),
           firstName,
           lastName,
@@ -45,13 +41,10 @@ export function Contact() {
           message,
         }),
       })
-      const data = await res.json()
-      if (data.success) {
-        setIsSubmitted(true)
-      } else {
-        setError("Failed to save submission. Please try again or contact Devyn at (301) 266-6365.")
-      }
+
+      setIsSubmitted(true)
     } catch (err) {
+      console.error(err)
       setError("Submission failed. Please try again or contact Devyn at (301) 266-6365.")
     } finally {
       setIsSubmitting(false)

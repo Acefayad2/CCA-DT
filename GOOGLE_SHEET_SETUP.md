@@ -18,7 +18,13 @@ Follow these steps so contact form submissions are saved to a Google Sheet.
 function doPost(e) {
   try {
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    const data = JSON.parse(e.postData.contents);
+    // Supports form-urlencoded (URLSearchParams) and JSON
+    let data = {};
+    if (e.parameter && e.parameter.firstName !== undefined) {
+      data = e.parameter;
+    } else if (e.postData && e.postData.contents) {
+      data = JSON.parse(e.postData.contents);
+    }
     sheet.appendRow([
       data.timestamp || new Date().toISOString(),
       data.firstName || '',
