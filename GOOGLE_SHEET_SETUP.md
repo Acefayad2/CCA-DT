@@ -57,15 +57,15 @@ function doPost(e) {
 1. Create a `.env.local` file in your project root (if it doesn't exist)
 2. Add:
    ```
-   GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
+   NEXT_PUBLIC_GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
    ```
    Replace with the URL you copied.
 3. Restart your dev server (`npm run dev`).
 
 ## 5. Deploy to Production
 
-If you're using Vercel or similar:
-- Add `GOOGLE_SCRIPT_URL` to your project's Environment Variables.
+If you're using Netlify, Vercel, or similar:
+- Add `NEXT_PUBLIC_GOOGLE_SCRIPT_URL` to your project's Environment Variables.
 - Redeploy.
 
 ---

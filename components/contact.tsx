@@ -19,23 +19,40 @@ export function Contact() {
     setIsSubmitting(true)
     const form = e.currentTarget
     const formData = new FormData(form)
+    const firstName = formData.get("firstName") as string
+    const lastName = formData.get("lastName") as string
+    const email = formData.get("email") as string
+    const phone = (formData.get("phone") as string) || ""
+    const message = formData.get("message") as string
+
+    const url = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL
+    if (!url) {
+      setError("Form is not configured. Please contact the site owner.")
+      setIsSubmitting(false)
+      return
+    }
+
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          firstName: formData.get("firstName"),
-          lastName: formData.get("lastName"),
-          email: formData.get("email"),
-          phone: formData.get("phone") || "",
-          message: formData.get("message"),
+          timestamp: new Date().toISOString(),
+          firstName,
+          lastName,
+          email,
+          phone,
+          message,
         }),
       })
       const data = await res.json()
-      if (!res.ok) throw new Error(data.error || "Failed to send")
-      setIsSubmitted(true)
+      if (data.success) {
+        setIsSubmitted(true)
+      } else {
+        setError("Failed to save submission. Please try again or contact Devyn at (301) 266-6365.")
+      }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.")
+      setError("Submission failed. Please try again or contact Devyn at (301) 266-6365.")
     } finally {
       setIsSubmitting(false)
     }
