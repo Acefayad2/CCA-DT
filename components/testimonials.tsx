@@ -22,19 +22,12 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Client Name",
-    role: "Business Owner",
-    content: "Devyn helped us understand our options and find the perfect coverage for our family. Her expertise and patience made all the difference.",
+    name: "Tj Spell",
+    role: "New Agent",
+    content:
+      "I enjoyed every moment of it so thank you for that & yea you definitely got some good ppl on your team I really did love the energy I got from them nothing was fake & I can honestly say they both are some smart genuine brothers",
     rating: 5,
     accent: "blue",
-  },
-  {
-    id: 4,
-    name: "Client Name",
-    role: "Parent & Professional",
-    content: "Working with Devyn was a game-changer. She took the time to explain everything clearly and helped us secure our children's future.",
-    rating: 5,
-    accent: "yellow",
   },
 ]
 
